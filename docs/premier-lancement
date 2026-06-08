@@ -66,7 +66,7 @@ sudo apt install htop fastfetch curl wget
 ## Vérification des paquets installés
 
 ```bash
-apt list --installed | grep nompaquet
+apt list --installed | grep nom_du_paquet
 ```
 
 Cette commande permet de vérifier la présence d'un paquet spécifique.
