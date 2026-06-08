@@ -1,0 +1,100 @@
+# Premier lancement du SRV-PI
+
+**Date :** 19/05/2026
+
+## Premier démarrage
+
+- Branchement du Raspberry Pi 5
+- Lancement de la fin de la configuration au premier démarrage (environ 5 minutes)
+- Observation du comportement de la LED de statut
+- Connexion SSH depuis le PC portable
+
+## Configuration réseau
+
+- Réservation de l'adresse IP `192.168.0.229` via le serveur DHCP de la box Internet
+
+## Mise à jour du système
+
+Mise à jour complète du système :
+
+```bash
+sudo apt update
+sudo apt full-upgrade -y
+```
+
+Redémarrage du serveur :
+
+```bash
+sudo reboot
+```
+
+## Vérifications système
+
+Contrôle des informations système :
+
+```bash
+hostname
+hostname -I
+free -h
+df -h
+uname -a
+```
+
+Informations vérifiées :
+
+- Nom d'hôte
+- Adresse IP
+- Mémoire RAM disponible
+- Espace disque disponible
+- Version du noyau Linux
+
+## Installation des utilitaires
+
+Installation des premiers outils d'administration :
+
+```bash
+sudo apt install htop fastfetch curl wget
+```
+
+### Utilitaires installés
+
+- **htop** : surveillance des ressources CPU et RAM
+- **fastfetch** : affichage rapide des informations système
+- **curl** : téléchargement de données et utilisation d'API
+- **wget** : téléchargement de fichiers depuis Internet
+
+## Vérification des paquets installés
+
+```bash
+apt list --installed | grep nompaquet
+```
+
+Cette commande permet de vérifier la présence d'un paquet spécifique.
+
+## Surveillance de la température
+
+Contrôle de la température du Raspberry Pi :
+
+```bash
+vcgencmd measure_temp
+```
+
+## Arrêt du système
+
+Arrêt propre du serveur :
+
+```bash
+sudo shutdown -h now
+```
+
+## Résultat
+
+- Première mise en service réussie
+
+- Accès SSH fonctionnel
+
+- Système mis à jour
+
+- Outils d'administration installés
+
+- Serveur prêt pour le déploiement des premiers services
