@@ -4,14 +4,14 @@
 
 ## Premier démarrage
 
-- Branchement du Raspberry Pi 5
-- Lancement de la fin de la configuration au premier démarrage (environ 5 minutes)
-- Observation du comportement de la LED de statut
-- Connexion SSH depuis le PC portable
+* Branchement du Raspberry Pi 5
+* Lancement de la configuration initiale (environ 5 minutes)
+* Observation du comportement de la LED de statut
+* Connexion SSH depuis le PC portable
 
 ## Configuration réseau
 
-- Réservation de l'adresse IP `192.168.0.229` via le serveur DHCP de la box Internet
+* Réservation de l'adresse IP `192.168.0.229` via le serveur DHCP de la box Internet
 
 ## Mise à jour du système
 
@@ -42,11 +42,11 @@ uname -a
 
 Informations vérifiées :
 
-- Nom d'hôte
-- Adresse IP
-- Mémoire RAM disponible
-- Espace disque disponible
-- Version du noyau Linux
+* Nom d'hôte
+* Adresse IP
+* Mémoire RAM disponible
+* Espace disque disponible
+* Version du noyau Linux
 
 ## Installation des utilitaires
 
@@ -58,10 +58,10 @@ sudo apt install htop fastfetch curl wget
 
 ### Utilitaires installés
 
-- **htop** : surveillance des ressources CPU et RAM
-- **fastfetch** : affichage rapide des informations système
-- **curl** : téléchargement de données et utilisation d'API
-- **wget** : téléchargement de fichiers depuis Internet
+* **htop** : surveillance CPU/RAM
+* **fastfetch** : informations système
+* **curl** : téléchargements et API
+* **wget** : téléchargement de fichiers
 
 ## Vérification des paquets installés
 
@@ -69,19 +69,13 @@ sudo apt install htop fastfetch curl wget
 apt list --installed | grep nom_du_paquet
 ```
 
-Cette commande permet de vérifier la présence d'un paquet spécifique.
-
 ## Surveillance de la température
-
-Contrôle de la température du Raspberry Pi :
 
 ```bash
 vcgencmd measure_temp
 ```
 
 ## Arrêt du système
-
-Arrêt propre du serveur :
 
 ```bash
 sudo shutdown -h now
@@ -98,3 +92,6 @@ sudo shutdown -h now
 - Outils d'administration installés
 
 - Serveur prêt pour le déploiement des premiers services
+
+```
+```
