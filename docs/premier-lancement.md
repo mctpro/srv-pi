@@ -5,9 +5,9 @@
 ## Premier démarrage
 
 * Branchement du Raspberry Pi 5
-* Lancement de la configuration initiale (environ 5 minutes)
-* Observation du comportement de la LED de statut
-* Connexion SSH depuis le PC portable
+* Lancement de la configuration initiale
+* Observation du comportement de la LED du boîtier
+* Connexion SSH depuis mon PC portable
 
 ## Configuration réseau
 
@@ -18,7 +18,7 @@
 Mise à jour complète du système :
 
 ```bash
-sudo apt update
+sudo apt update 
 sudo apt full-upgrade -y
 ```
 
@@ -44,7 +44,7 @@ Informations vérifiées :
 
 * Nom d'hôte
 * Adresse IP
-* Mémoire RAM disponible
+* RAM disponible
 * Espace disque disponible
 * Version du noyau Linux
 
@@ -59,7 +59,7 @@ sudo apt install htop fastfetch curl wget
 ### Utilitaires installés
 
 * **htop** : surveillance CPU/RAM
-* **fastfetch** : informations système
+* **fastfetch** : informations du système
 * **curl** : téléchargements et API
 * **wget** : téléchargement de fichiers
 
@@ -91,7 +91,7 @@ sudo shutdown -h now
 
 - Outils d'administration installés
 
-- Serveur prêt pour le déploiement des premiers services
+- Serveur prêt pour les premiers services comme Pi-Hole, Samba, Grafana, etc...
 
 ```
 ```
