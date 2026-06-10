@@ -28,13 +28,13 @@ La résolution du nom d'hôte ne fonctionnait pas sur le réseau.
 Recherche de l'adresse IP sur l'interface d'administration de la Livebox :
 
 ```text
-192.168.0.229
+192.168.X.X
 ```
 
 Connexion SSH via :
 
 ```bash
-ssh mc@192.168.0.229
+ssh mc@192.168.X.X
 ```
 
 ## Résultat
