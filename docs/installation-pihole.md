@@ -37,7 +37,7 @@ pihole setpassword
 - Accès au tableau de bord web avec :
 
 ```text
-http://192.168.0.229/admin
+http://192.168.X.X/admin
 ```
 
 dans le navigateur.
