@@ -81,16 +81,6 @@ vcgencmd measure_temp
 sudo shutdown -h now
 ```
 
-## Résultat
 
-- Première mise en service réussie
-
-- Accès SSH fonctionnel
-
-- Système mis à jour
-
-- Outils d'administration installés
-
-- Serveur prêt pour les premiers services comme Pi-Hole, Samba, Grafana, etc...
 
 
