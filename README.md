@@ -23,8 +23,9 @@ Projet personnel d'apprentissage de l'administration système.
 
 ## État du projet
 
-🟢 Pi-hole opérationnel
-🟢 Monitoring opérationnel
-🟢 Docker et Portainer opérationnels
-🟢 Portail web personnel fonctionnel
+✅ Pi-hole opérationnel
+✅ Monitoring opérationnel
+✅ Docker et Portainer opérationnels
+✅ Dozzle opérationnel
+✅ Portail web personnel fonctionnel
 🟡 Étude d'un projet d'agents IA basé sur des flux RSS crypto + création de l'interface web pour un utilisateur externe  
