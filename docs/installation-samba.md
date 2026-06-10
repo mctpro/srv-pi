@@ -84,7 +84,7 @@ sudo systemctl restart smbd
 
 ## Accès depuis Windows
 
-* Installation des lecteurs Windows en `\\192.168.0.229\Partage` depuis les ordinateurs locaux
+* Installation des lecteurs Windows en `\\192.168.X.X\Partage` depuis les ordinateurs locaux
 
 * Vérification du bon fonctionnement du partage réseau.
 
