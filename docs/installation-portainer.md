@@ -88,7 +88,7 @@ sudo docker ps
 * Connexion à l’interface web de Portainer :
 
 ```text
-https://192.168.0.229:9443
+https://192.168.X.X:9443
 ```
 
 * Choix du mot de passe
