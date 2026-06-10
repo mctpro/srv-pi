@@ -11,7 +11,7 @@
 
 ## Configuration réseau
 
-* Réservation de l'adresse IP `192.168.0.229` via le serveur DHCP de la box Internet
+* Réservation de l'adresse IP `192.168.X.X` via le serveur DHCP de la box Internet
 
 ## Mise à jour du système
 
