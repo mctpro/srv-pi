@@ -43,7 +43,7 @@ cd node_exporter-1.9.1.linux-arm64
 * Visualisation des métriques dans le navigateur web :
 
 ```text
-http://192.168.0.229:9100/metrics
+http://192.168.X.X:9100/metrics
 ```
 
 ## Installation de Prometheus
@@ -91,7 +91,7 @@ cd ~/monitoring/prometheus-3.3.1.linux-arm64
 * Lancement de l’interface web Prometheus avec :
 
 ```text
-http://192.168.0.229:9090
+http://192.168.X.X:9090
 ```
 
 * Vérification du bon fonctionnement des services (petit 1 en bout de ligne).
@@ -149,7 +149,7 @@ sudo systemctl status grafana-server
 * Ouverture de Grafana sur le navigateur web avec :
 
 ```text
-http://192.168.0.229:3000
+http://192.168.X.X:3000
 ```
 
 * Changement du mdp admin
