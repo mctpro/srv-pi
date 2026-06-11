@@ -6,6 +6,7 @@ Projet personnel d'apprentissage de l'administration système.
 
 - Raspberry Pi 5
 - Raspberry Pi OS
+- Différents ordinateurs connectés sur le réseau local
 
 ## Objectifs
 
@@ -20,12 +21,10 @@ Projet personnel d'apprentissage de l'administration système.
 - Portainer
 - Dozzle
 - Portail web personnel
+- Samba
+- Fail2Ban
+- UFW
 
 ## État du projet
 
-✅ Pi-hole opérationnel
-✅ Monitoring opérationnel
-✅ Docker et Portainer opérationnels
-✅ Dozzle opérationnel
-✅ Portail web personnel fonctionnel
-⚙️ Étude d'un projet d'agents IA basé sur des flux RSS crypto + création de l'interface web pour un utilisateur externe  
+Étude d'un projet d'agents IA basé sur des flux RSS crypto
