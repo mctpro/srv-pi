@@ -328,3 +328,160 @@ sudo docker inspect portail --format='{{.HostConfig.RestartPolicy.Name}}'
 ## Résultat
 
 Le portail redémarre désormais automatiquement après un reboot.
+
+# Incident - Déploiement de WireGuard sur SRV-PI
+
+## Observations
+
+Après l'installation de PiVPN et la création du premier profil client :
+
+* Le tunnel WireGuard pouvait être activé sur mon téléphone.
+* Aucun accès aux services du serveur n'était possible depuis l'extérieur.
+* La commande `sudo wg` n'affichait aucun `latest handshake`.
+* Aucun trafic n'était échangé entre le client et le serveur.
+
+Le VPN semblait correctement installé mais aucune connexion n'atteignait SRV-PI.
+
+---
+
+## Diagnostic
+
+### Vérification du service WireGuard
+
+Contrôle de l'écoute du port UDP 51820 :
+
+```bash
+sudo ss -ulnp | grep 51820
+```
+
+Résultat :
+
+```text
+0.0.0.0:51820
+*:51820
+```
+
+Le service WireGuard fonctionnait correctement.
+
+---
+
+### Vérification des échanges WireGuard
+
+Commande exécutée :
+
+```bash
+sudo wg
+```
+
+Résultat :
+
+Aucun `latest handshake` n'était affiché.
+
+Le client ne contactait donc jamais le serveur.
+
+---
+
+## Cause identifiée
+
+Analyse du fichier de configuration client :
+
+```bash
+sudo cat /etc/wireguard/configs/MC.conf
+```
+
+Résultat :
+
+```ini
+Endpoint = X.X.X.X:51820
+```
+
+Cette adresse correspondait à l'ancienne adresse IP publique détectée avant le passage en IP publique Orange.
+
+Après la modification du modem, la nouvelle adresse publique était :
+
+```text
+X.X.X.X
+```
+
+Cependant, PiVPN conservait toujours l'ancienne valeur dans son fichier de configuration :
+
+```bash
+cat /etc/pivpn/wireguard/setupVars.conf | grep HOST
+```
+
+Résultat :
+
+```text
+pivpnHOST=X.X.X.X
+```
+
+Tous les nouveaux profils VPN générés utilisaient donc une adresse IP incorrecte.
+
+---
+
+## Résolution
+
+Modification du fichier :
+
+```bash
+sudo nano /etc/pivpn/wireguard/setupVars.conf
+```
+
+Remplacement de :
+
+```text
+pivpnHOST=X.X.X.X
+```
+
+par :
+
+```text
+pivpnHOST=X.X.X.X
+```
+
+Puis suppression et recréation du profil VPN :
+
+```bash
+pivpn remove
+pivpn add
+```
+
+Génération d'un nouveau QR Code :
+
+```bash
+pivpn -qr
+```
+
+Le nouveau profil a ensuite été importé dans l'application WireGuard du smartphone.
+
+---
+
+## Validation
+
+Nouvelle vérification :
+
+```bash
+sudo wg
+```
+
+Résultat :
+
+```text
+latest handshake: 11 seconds ago
+transfer: 29.88 KiB received, 45.79 KiB sent
+```
+
+Le tunnel VPN était alors pleinement opérationnel.
+
+---
+
+## Résultat final
+
+* Accès distant sécurisé fonctionnel.
+* Connexion WireGuard établie avec succès.
+* Accès aux services internes (Pi-hole, Portainer, SSH).
+* Redirection NAT opérationnelle.
+* Adresse IP fixe réservée pour le Raspberry Pi (`192.168.0.X`).
+* Vérification du bon fonctionnement via les échanges WireGuard.
+
+
