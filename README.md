@@ -24,6 +24,7 @@ Projet personnel d'apprentissage de l'administration système.
 - Samba
 - Fail2Ban
 - UFW
+- PiVPN
 
 ## État du projet
 
