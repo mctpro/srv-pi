@@ -475,13 +475,52 @@ Le tunnel VPN était alors pleinement opérationnel.
 
 ---
 
-## Résultat final
+## Incident : port 8080 déjà utilisé
 
-* Accès distant sécurisé fonctionnel.
-* Connexion WireGuard établie avec succès.
-* Accès aux services internes (Pi-hole, Portainer, SSH).
-* Redirection NAT opérationnelle.
-* Adresse IP fixe réservée pour le Raspberry Pi (`192.168.0.X`).
-* Vérification du bon fonctionnement via les échanges WireGuard.
+* Au premier démarrage, Nextcloud devait utiliser le port `8080`.
+
+* Erreur obtenue :
+
+```text
+Bind for 0.0.0.0:8080 failed: port is already allocated
+```
+
+* Recherche du service utilisant ce port avec :
+
+```bash
+sudo ss -tulpn | grep :8080
+```
+
+* Résultat : le port `8080` était déjà utilisé par Docker.
+
+* Le port externe de Nextcloud a été changé de `8080` vers `8081`.
+
+* Configuration finale :
+
+```yaml
+ports:
+  - "8081:80"
+```
+
+## Incident : accès refusé à MariaDB
+
+* Après le démarrage, Nextcloud affichait une erreur lors de la création du compte administrateur :
+
+```text
+SQLSTATE[HY000] [1045] Access denied for user 'nextcloud'
+```
+
+* Cause identifiée : le mot de passe configuré dans Nextcloud ne correspondait pas à celui créé dans MariaDB.
+
+* Le mot de passe `MYSQL_PASSWORD` a été remplacé par le même mot de passe que `MARIADB_PASSWORD`.
+
+* Comme la base avait déjà été initialisée avec la mauvaise configuration, les volumes ont été supprimés afin de recommencer l’installation proprement avec :
+
+```bash
+sudo docker compose down -v
+sudo docker compose up -d
+```
+
+* Cette commande a été utilisée uniquement car l’installation était neuve et ne contenait encore aucun fichier personnel.
 
 
