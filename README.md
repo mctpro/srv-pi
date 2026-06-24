@@ -24,7 +24,8 @@ Projet personnel d'apprentissage de l'administration système.
 - Samba
 - Fail2Ban
 - UFW
-- PiVPN
+- PiVPN - WireGuard
+- NextCloud
 
 ## État du projet
 
